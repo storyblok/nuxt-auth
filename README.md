@@ -29,6 +29,39 @@ The module features
 }
 ```
 
+## Recommended Setup
+
+- install `dotenv` module and create `.env` file in root of your project
+- keep all the confidential informations in `.env` file
+- load confidental information in `nuxt.config.js` using `dotenv` package 
+
+```js
+require('dotenv').config()
+
+export default {
+  // ...
+  modules: [
+    '@nuxtjs/dotenv',
+    [
+      '@storyblok/nuxt-auth',
+      {
+        id: process.env.CONFIDENTIAL_CLIENT_ID,
+        secret: process.env.CONFIDENTIAL_CLIENT_SECRET,
+        redirect_uri: process.env.CONFIDENTIAL_CLIENT_REDIRECT_URI
+      }
+    ]
+  ]
+  // ...
+}
+```
+
+```js
+// .env file
+CONFIDENTIAL_CLIENT_ID="Id from Storyblok App"
+CONFIDENTIAL_CLIENT_SECRET="Secret from Storyblok App"
+CONFIDENTIAL_CLIENT_REDIRECT_URI="callback url of your app"
+```
+
 ## Usage
 
 Will be added soon
