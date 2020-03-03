@@ -11,8 +11,8 @@
 The module features
 
 ## Setup
-- Add `storyblok-nuxt` dependency using yarn or npm to your project
-- Add `storyblok-nuxt` to `modules` section of `nuxt.config.js`
+- Add `@storyblok/nuxt-auth` dependency using yarn or npm to your project
+- Add `@storyblok/nuxt-auth` to `modules` section of `nuxt.config.js`
 
 ```js
 {
@@ -20,9 +20,9 @@ The module features
     [
       '@storyblok/nuxt-auth',
       {
-        id: 'CONFIDENTIAL_CLIENT_ID', // from your storyblok application
-        secret: 'CONFIDENTIAL_CLIENT_SECRET', // from your storyblok application
-        redirect_uri: 'CONFIDENTIAL_CLIENT_REDIRECT_URI' // from your storyblok application
+        id: 'Client ID from Storyblok App',
+        secret: 'Secret from Storyblok App',
+        redirect_uri: 'REDIRECT_URI' // Equal to callbakc URL of Oauth2 from Storyblok App
       }
     ],
  ]
