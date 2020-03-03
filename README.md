@@ -107,11 +107,11 @@ Read this step by step sample guide from Storyblok. (TODO write sample)
 
 Features need for v1 release:
 
-[ ] - request body
-[ ] - write cleaner docs
-[ ] - add more complex samples
-[ ] - write down sample article
-[ ] - move auth check from mounted
+- [ ] request body
+- [ ] write cleaner docs
+- [ ] add more complex samples
+- [ ] write down sample article
+- [ ] move auth check from mounted
 
 ## License
 

@@ -1,6 +1,6 @@
 {
   "name": "@storyblok/nuxt-auth",
-  "version": "0.0.9-beta.3",
+  "version": "0.0.9-beta.4",
   "description": "Storyblok's authentification module for the Nuxt.js",
   "repository": "git@github.com:storyblok/nuxt-auth.git",
   "author": "Samuel Snopko <samuel@snopko.com>",
