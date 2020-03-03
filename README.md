@@ -6,9 +6,9 @@
 
 > Storyblok's authentification module for the Nuxt.js
 
-## Features
+## Requirements
 
-The module features
+You can create a custom Storyblok app only if you are part of the [partner program](https://www.storyblok.com/partners).
 
 ## Setup
 - Add `@storyblok/nuxt-auth` dependency using yarn or npm to your project
@@ -64,11 +64,54 @@ CONFIDENTIAL_CLIENT_REDIRECT_URI="callback url of your app"
 
 ## Usage
 
-Will be added soon
+The module registers auth middleware in your Nuxt.js project and router for the StoryblokClient. After that you can use axios in your vue files to get data from Storyblok using the [Management API](https://www.storyblok.com/docs/api/management). **Still not all features of Management API supported**
+
+Prefix all paths in axios with `/auth/explore/`. If you want to get all stories from space ide 606, you would call with management API `spaces/606/stories/` here you call `/auth/explore/spaces/606/stories/`. Check more samples down.
 
 ```js
-WIP
+import axios from 'axios'
+
+export default {
+  data() {
+    return {
+      stories: []
+    }
+  },
+  mounted() {
+    if (window.top == window.self) {
+      window.location.assign('https://app.storyblok.com/oauth/app_redirect')
+    } else {
+      this.loadStories()
+    }
+  },
+  methods: {
+    loadStories() {
+      axios.get(`/auth/explore/spaces/${this.$route.query.space_id}/stories`)
+        .then((res) => {
+          // do what you want to do ;) 
+          // this is only basic sample
+          this.stories = res.data.stories
+        })
+      }
+  }
+}
 ```
+
+## Samples
+
+Read this step by step sample guide from Storyblok. (TODO write sample) 
+
+# NOTE
+
+**This is still beta! Use this module for first experiments with custom storyblok apps. More complex functionality will be added with version 1 release. **
+
+Features need for v1 release:
+
+[ ] - request body
+[ ] - write cleaner docs
+[ ] - add more complex samples
+[ ] - write down sample article
+[ ] - move auth check from mounted
 
 ## License
 
