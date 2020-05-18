@@ -99,7 +99,7 @@ export default {
         .then((res) => {
           // do what you want to do ;) 
           // this is only basic sample
-          this.stories = res.data.stories
+          this.stories = res.data.data.stories
         })
       }
   }
@@ -167,7 +167,7 @@ export default {
     loadUserInformation() {
       axios.get(`/auth/user`)
         .then((res) => {
-          this.user = res.data || {}
+          this.user = res.data.data || {}
         })
       }
   }
