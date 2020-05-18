@@ -66,7 +66,11 @@ CONFIDENTIAL_CLIENT_REDIRECT_URI="callback url of your app"
 
 The module registers auth middleware in your Nuxt.js project and router for the StoryblokClient. After that you can use axios in your vue files to get data from Storyblok using the [Management API](https://www.storyblok.com/docs/api/management). **Not all features of Management API supported. Only GET supported in this beta.**
 
-Prefix all paths in axios with `/auth/explore/`. If you want to get all stories from space ide 606, you would call with management API `spaces/606/stories/` here you call `/auth/explore/spaces/606/stories/`. Check more samples down.
+### Using Management API
+
+To use Storyblok Management API, all paths in axios was prefixed with `/auth/explore/`. If you want to get all stories from space ide 606, you would call with management API `spaces/606/stories/` here you call `/auth/explore/spaces/606/stories/`.
+
+For example, to get all stories from specific space:
 
 ```js
 import axios from 'axios'
@@ -79,18 +83,92 @@ export default {
   },
   mounted() {
     if (window.top == window.self) {
+      // when your app is authenticated,
+      // this URL will be redirect to <YOUR_APP_URL>/space_id?<AUTHORIZED_SPACE>
       window.location.assign('https://app.storyblok.com/oauth/app_redirect')
     } else {
+      // however, once authenticated and inside of Storyblok Space APP,
+      // you're able to use axios to make the necessary requests
+      // for example, get the stories from the authenticated space
       this.loadStories()
     }
   },
   methods: {
     loadStories() {
+      // get the space id from URL and use it in requests
       axios.get(`/auth/explore/spaces/${this.$route.query.space_id}/stories`)
         .then((res) => {
           // do what you want to do ;) 
           // this is only basic sample
           this.stories = res.data.stories
+        })
+      }
+  }
+}
+```
+
+Another example, to create a new story:
+
+```js
+import axios from 'axios'
+
+export default {
+  data() {
+    return {
+      loading: false,
+      story: {
+        name: ''
+      }
+    }
+  },
+  methods: {
+    createStory() {
+      this.loading = true
+
+      // The request body is the same from Management API
+      // https://www.storyblok.com/docs/api/management#core-resources/stories/create-story
+      const body = {
+        story: { ...this.story }
+      }
+
+      // get the space id from URL and use it in requests
+      return axios
+        .post(`/auth/explore/spaces/${this.$route.query.space_id}/stories`, body)
+        .then((res) => {
+          this.loading = false
+        })
+      }
+  }
+}
+```
+
+### Get the authenticated user information
+
+To get information about the authenticated user, you should make a `GET` request to `/auth/explore/` path.
+
+Example:
+
+```js
+import axios from 'axios'
+
+export default {
+  data() {
+    return {
+      user: {}
+    }
+  },
+  mounted() {
+    if (window.top == window.self) {
+      window.location.assign('https://app.storyblok.com/oauth/app_redirect')
+    } else {
+      this.loadUserInformation()
+    }
+  },
+  methods: {
+    loadUserInformation() {
+      axios.get(`/auth/user`)
+        .then((res) => {
+          this.user = res.data || {}
         })
       }
   }

@@ -23,6 +23,11 @@ array-flatten@1.1.1:
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
   integrity sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
 
+axios-auth-refresh@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/axios-auth-refresh/-/axios-auth-refresh-2.2.6.tgz#22cde7c961d4caa879da6337947301a63209cdd3"
+  integrity sha512-L3djMIUi/WTIzItr8VO9dFAraPRO9+T4sGkz5VEcxyDyX/gzPVhVvpWHwnqKxhojXZnMrTlZGIs98P12+ba/Ew==
+
 axios@^0.19.0, axios@^0.19.2:
   version "0.19.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
