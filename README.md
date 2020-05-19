@@ -77,7 +77,9 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      stories: []
+      stories: [],
+      perPage: null,
+      total: null
     }
   },
   mounted() {
@@ -99,7 +101,9 @@ export default {
         .then((res) => {
           // do what you want to do ;) 
           // this is only basic sample
-          this.stories = res.data.data.stories
+          this.perPage = res.data.perPage
+          this.total = res.data.total
+          this.stories = res.data.stories
         })
       }
   }
@@ -167,7 +171,7 @@ export default {
     loadUserInformation() {
       axios.get(`/auth/user`)
         .then((res) => {
-          this.user = res.data.data || {}
+          this.user = res.data || {}
         })
       }
   }
