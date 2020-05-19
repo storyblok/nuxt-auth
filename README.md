@@ -178,21 +178,9 @@ export default {
 }
 ```
 
-## Samples
+## Example app
 
-Read this step by step sample guide from Storyblok. (TODO write sample) 
-
-# NOTE
-
-**This is still beta! Use this module for first experiments with custom storyblok apps. More complex functionality will be added with version 1 release. Current version supports only GET.**
-
-Features need for v1 release:
-
-- [ ] request body
-- [ ] write cleaner docs
-- [ ] add more complex samples
-- [ ] write down sample article
-- [ ] move auth check from mounted
+Check out the workflow manager app to see an example [github.com/storyblok/storyblok-workflow-app](https://github.com/storyblok/storyblok-workflow-app).
 
 ## License
 
