@@ -67,7 +67,7 @@ The module registers auth middleware in your Nuxt.js project and router for the 
 
 ### Using Management API
 
-To use Storyblok Management API, all paths in axios was prefixed with `/auth/explore/`. If you want to get all stories from space ide 606, you would call with management API `spaces/606/stories/` here you call `/auth/explore/spaces/606/stories/`.
+To use Storyblok Management API, all paths in axios was prefixed with `/auth/`. If you want to get all stories from space ide 606, you would call with management API `spaces/606/stories/` here you call `/auth/spaces/606/stories/`.
 
 For example, to get all stories from specific space:
 
@@ -97,7 +97,7 @@ export default {
   methods: {
     loadStories() {
       // get the space id from URL and use it in requests
-      axios.get(`/auth/explore/spaces/${this.$route.query.space_id}/stories`)
+      axios.get(`/auth/spaces/${this.$route.query.space_id}/stories`)
         .then((res) => {
           // do what you want to do ;) 
           // this is only basic sample
@@ -136,7 +136,7 @@ export default {
 
       // get the space id from URL and use it in requests
       return axios
-        .post(`/auth/explore/spaces/${this.$route.query.space_id}/stories`, body)
+        .post(`/auth/spaces/${this.$route.query.space_id}/stories`, body)
         .then((res) => {
           this.loading = false
         })
@@ -147,7 +147,7 @@ export default {
 
 ### Get the authenticated user information
 
-To get information about the authenticated user, you should make a `GET` request to `/auth/explore/` path.
+To get information about the authenticated user, you should make a `GET` request to `/auth/user` path.
 
 Example:
 
@@ -169,7 +169,7 @@ export default {
   },
   methods: {
     loadUserInformation() {
-      axios.get(`/auth/user`)
+      axios.get(`/auth/user?space_id=${this.$route.query.space_id}`)
         .then((res) => {
           this.user = res.data || {}
         })
