@@ -63,7 +63,7 @@ CONFIDENTIAL_CLIENT_REDIRECT_URI="callback url of your app"
 
 ## Usage
 
-The module registers auth middleware in your Nuxt.js project and router for the StoryblokClient. After that you can use axios in your vue files to get data from Storyblok using the [Management API](https://www.storyblok.com/docs/api/management). **Not all features of Management API supported. Only GET supported in this beta.**
+The module registers auth middleware in your Nuxt.js project and router for the StoryblokClient. After that you can use axios in your vue files to get data from Storyblok using the [Management API](https://www.storyblok.com/docs/api/management). 
 
 ### Using Management API
 
