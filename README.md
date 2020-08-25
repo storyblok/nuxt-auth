@@ -202,7 +202,7 @@ export default {
 
 ### Defining a new entry point
 
-If you want to have an another entry point, like `auth` for example, you can set the `return_url` in the configuration with the `/auth` value:
+Change this setting if you want to have a different entry point than the default one `'/'`. Example:
 
 ```js
 // ...
@@ -216,7 +216,7 @@ If you want to have an another entry point, like `auth` for example, you can set
 // ...
 ```
 
-After this, you can create a `auth` pages and your nuxt app. To receive the space_id information, you have to get that from the `$router.query` object:
+With this configuration you can create a file for the `/auth` route and handle the logic there. You will find the query parameter `space_id` in  `$router.query` which needs to be used for the api calls:
 
 ```vue
 <template>
