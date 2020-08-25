@@ -61,6 +61,28 @@ CONFIDENTIAL_CLIENT_SECRET="Secret from Storyblok App"
 CONFIDENTIAL_CLIENT_REDIRECT_URI="callback url of your app"
 ```
 
+## Module options
+
+The module options can receive the following fields:
+
+### id (required)
+
+The client id from Storyblok App
+
+### secret (required)
+
+The secret id from Storyblok App
+
+### redirect_url (required)
+
+Callback URL to your app
+
+### return_url (optional)
+
+* default: '/'
+
+The entry point to your application. It is a page that will be receive the `space_id` information as router query parameters. See the "Defining a new entry point" section for more details
+
 ## Usage
 
 The module registers auth middleware in your Nuxt.js project and router for the StoryblokClient. After that you can use axios in your vue files to get data from Storyblok using the [Management API](https://www.storyblok.com/docs/api/management). 
@@ -176,6 +198,45 @@ export default {
       }
   }
 }
+```
+
+### Defining a new entry point
+
+If you want to have an another entry point, like `auth` for example, you can set the `return_url` in the configuration with the `/auth` value:
+
+```js
+// ...
+  '@storyblok/nuxt-auth',
+  {
+    id: process.env.CONFIDENTIAL_CLIENT_ID,
+    secret: process.env.CONFIDENTIAL_CLIENT_SECRET,
+    redirect_uri: process.env.CONFIDENTIAL_CLIENT_REDIRECT_URI,
+    return_url: '/auth'
+  }
+// ...
+```
+
+After this, you can create a `auth` pages and your nuxt app. To receive the space_id information, you have to get that from the `$router.query` object:
+
+```vue
+<template>
+  <div>
+    <h1> The space id is {{ space_id }} </h1>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'AuthExamplePage',
+  data: () => ({
+    space_id: null
+  }),
+  mounted () {
+    // get the space_id from $router.query object
+    this.space_id = this.$route.query.space_id
+  }
+}
+</script>
 ```
 
 ## Example app
