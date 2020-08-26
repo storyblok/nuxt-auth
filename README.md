@@ -73,7 +73,7 @@ The client id from Storyblok App
 
 The secret id from Storyblok App
 
-### redirect_url (required)
+### redirect_uri (required)
 
 Callback URL to your app
 
