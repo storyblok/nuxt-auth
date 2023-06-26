@@ -1,9 +1,13 @@
-# @storyblok/nuxt-auth
+# @storyblok/nuxt-auth [DEPRECATED]
 [![npm (scoped with tag)](https://img.shields.io/npm/v/@storyblok/nuxt-auth/latest.svg?style=flat-square)](https://npmjs.com/package/@storyblok/nuxt-auth)
 [![npm](https://img.shields.io/npm/dt/@storyblok/nuxt-auth.svg?style=flat-square)](https://npmjs.com/package/@storyblok/nuxt-auth)
 [![js-standard-style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com)
 
-> Storyblok's authentification module for the Nuxt.js
+> **⚠️ Disclaimer: No Longer Maintained**
+Please be aware that this module is no longer actively maintained or supported. However, it is important to note that this change will not break any existing functionality or cause disruptions. While bug fixes, updates, and new feature development will not be provided, the module will continue to work as it currently does. Compatibility with future systems, frameworks, or dependencies is not guaranteed, and caution should be exercised when using it with the latest technologies. The issue tracker is no longer monitored, and new issues will not be addressed. The decision to discontinue the maintenance and support of this module was driven by resource limitations and a shift in project focus. We recommend considering **[Storyblok App Extension Auth](https://github.com/storyblok/app-extension-auth)** as an alternative solution. No further contributions or pull requests will be accepted for this module.
+
+ 
+Storyblok's authentification module for the Nuxt.js
 
 ## Requirements
 
